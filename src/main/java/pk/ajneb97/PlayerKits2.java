@@ -1,6 +1,8 @@
 
 package pk.ajneb97;
 
+import com.xyrisdev.library.scheduler.XScheduler;
+import com.xyrisdev.library.scheduler.scheduling.schedulers.TaskScheduler;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -26,6 +28,10 @@ public class PlayerKits2 extends JavaPlugin {
     public static String prefix;
     public static ServerVersion serverVersion;
 
+    // Folia support - begin
+    private static TaskScheduler scheduler;
+    // Folia support - end
+
     private KitItemManager kitItemManager;
     private KitsManager kitsManager;
     private DependencyManager dependencyManager;
@@ -44,6 +50,10 @@ public class PlayerKits2 extends JavaPlugin {
     private MySQLConnection mySQLConnection;
 
     public void onEnable(){
+        // Folia support - begin
+        scheduler = XScheduler.of(this);
+        // Folia support - begin
+
         setVersion();
         setPrefix();
         registerCommands();

@@ -1,5 +1,6 @@
 package pk.ajneb97.database;
 
+import com.xyrisdev.library.scheduler.XRunnable;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -130,7 +131,8 @@ public class MySQLConnection {
     }
 
     public void getPlayer(String uuid,PlayerCallback callback){
-        new BukkitRunnable(){
+//        new BukkitRunnable(){
+        new XRunnable(){
             @Override
             public void run() {
                 PlayerData player = null;
@@ -169,7 +171,8 @@ public class MySQLConnection {
                     }
 
                     PlayerData finalPlayer = player;
-                    new BukkitRunnable(){
+//                    new BukkitRunnable(){
+                    new XRunnable(){
                         @Override
                         public void run() {
                             callback.onDone(finalPlayer);
@@ -183,7 +186,8 @@ public class MySQLConnection {
     }
 
     public void createPlayer(PlayerData player,SimpleCallback callback){
-        new BukkitRunnable(){
+//        new BukkitRunnable(){
+        new XRunnable(){
             @Override
             public void run() {
                 try(Connection connection = getConnection()){
@@ -195,7 +199,8 @@ public class MySQLConnection {
                     statement.setString(2, player.getName());
                     statement.executeUpdate();
 
-                    new BukkitRunnable(){
+//                    new BukkitRunnable(){
+                    new XRunnable(){
                         @Override
                         public void run() {
                             callback.onDone();
@@ -209,7 +214,8 @@ public class MySQLConnection {
     }
 
     public void updatePlayerName(PlayerData player){
-        new BukkitRunnable(){
+//        new BukkitRunnable(){
+        new XRunnable(){
             @Override
             public void run() {
                 try(Connection connection = getConnection()){
@@ -228,7 +234,8 @@ public class MySQLConnection {
     }
 
     public void updateKit(PlayerData player,PlayerDataKit kit,boolean mustCreate){
-        new BukkitRunnable(){
+//        new BukkitRunnable(){
+        new XRunnable(){
             @Override
             public void run() {
                 try(Connection connection = getConnection()){
@@ -265,7 +272,8 @@ public class MySQLConnection {
     }
 
     public void resetKit(String uuid,String kitName,boolean all){
-        new BukkitRunnable(){
+//        new BukkitRunnable(){
+        new XRunnable(){
             @Override
             public void run() {
                 try(Connection connection = getConnection()){

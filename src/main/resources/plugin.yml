@@ -3,6 +3,7 @@ version: 1.17.2
 name: PlayerKits2
 api-version: 1.13
 softdepend: [Vault,PlaceholderAPI]
+folia-supported: true
 author: Ajneb97
 
 commands:

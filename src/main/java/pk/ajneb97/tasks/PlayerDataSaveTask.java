@@ -1,6 +1,6 @@
 package pk.ajneb97.tasks;
 
-import org.bukkit.scheduler.BukkitRunnable;
+import com.xyrisdev.library.scheduler.XRunnable;
 import pk.ajneb97.PlayerKits2;
 
 public class PlayerDataSaveTask {
@@ -18,8 +18,9 @@ public class PlayerDataSaveTask {
 	
 	public void start(int seconds) {
 		long ticks = seconds* 20L;
-		
-		new BukkitRunnable() {
+
+//		new BukkitRunnable() {
+		new XRunnable() {
 			@Override
 			public void run() {
 				if(end) {

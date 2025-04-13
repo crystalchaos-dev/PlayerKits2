@@ -1,8 +1,8 @@
 package pk.ajneb97.managers;
 
+import com.xyrisdev.library.scheduler.XRunnable;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.scheduler.BukkitRunnable;
 import pk.ajneb97.PlayerKits2;
 import pk.ajneb97.configs.KitsConfigManager;
 import pk.ajneb97.configs.PlayersConfigManager;
@@ -23,7 +23,8 @@ public class MigrationManager {
     }
 
     public void migrate(CommandSender sender){
-        new BukkitRunnable(){
+//        new BukkitRunnable(){
+        new XRunnable(){
             @Override
             public void run() {
                 migrateKits(sender);
